@@ -1,8 +1,8 @@
 //protractor.conf.js
 exports.config = {
     directConnect : true,
-    getPageTimeout: 50000,
-    allScriptsTimeout: 50000,
+    // getPageTimeout: 60000,
+    // allScriptsTimeout: 60000,
     framework: 'custom', // set to "custom" instead of cucumber.
     // path relative to the current config file
     frameworkPath: require.resolve('protractor-cucumber-framework'),
@@ -12,8 +12,9 @@ exports.config = {
   
     // Spec patterns are relative to this directory.
     specs: [
-      // 'tests/cucumber/Feature/*.feature',
-      'features/testing.feature'
+      // 'features/*.feature',
+      'features/testInBrowser.feature',
+      'features/unitTest.feature',
     ],
   
     cucumberOpts: {

@@ -2,24 +2,24 @@ const { Given, When, Then } = require('cucumber');
 const calculatorPage = require('../pages/calculator.js');
 const expect = require('chai').expect;
 
-Given('Open the Google page', async () => {
-    await browser.driver.get("http://www.google.com/");
+When('Hit The AngularIO Page URL', async () => {
+    await browser.get('https://angular.io/docs');
 });
 
-When('Hit the Gmail URL', async () => {
-    await browser.driver.get("http://www.gmail.com/");
-});
-
-Then('Verify the page title of Gmail page', async () => {
-    browser.sleep(6000);
+Then('Verify The Page Title', async () => {
+    browser.sleep(3000);
     const title = await browser.driver.getTitle();
-    const urrl = await browser.driver.getCurrentUrl();
     console.log('TITLE = ', title);
-    console.log('URL = ', urrl);
-    expect(title).to.be.equal("Gmail - Free Storage and Email from Google");
+    await expect(title).to.be.equal("Angular - Introduction to the Angular Docs");
 });
 
-Then('Verify the sum of the array input', async () => {
+Then('Verify The Current Page URL', async () => {
+    const url = await browser.driver.getCurrentUrl();
+    console.log('URL = ', url);
+    await expect(url).to.be.equal("https://angular.io/docs");
+});
+
+Then('Verify the sum of the array input', function () {
     const input_array = [10, 20, 30, 40, 50];
     var sum = 0;
     for (let i = 0; i < input_array.length; i++) {
@@ -41,14 +41,13 @@ Then('Verify Sum Of Given Numbers', function (Number1, Number2, Number3) {
 
 
 Then('Verify Sum Of Given Numbers {int} {int} {int}', function (Number1, Number2, Number3) {
-    console.log('SUM OF THREE NUMBER ARE = ', Number1 + Number2 + Number3);
+    console.log('SUM OF THREE Integer are = ', Number1 + Number2 + Number3);
 });
 
 
 Then('Concat all input string parameters {string} {string} {string}', function (param1, param2, param3) {
     console.log('CONCAT STRING ARE = ', param1 + param2 + param3);
 });
-
 
 // Then('^Concat all input string parameters "(.*)" "(.*)" "(.*)"$', function (param1, param2, param3) {
 //     console.log('CONCAT STRING ARE = ', param1 + param2 + param3);
