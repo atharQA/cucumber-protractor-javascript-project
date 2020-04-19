@@ -1,0 +1,17 @@
+{
+  "name": "cucumbertest",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "athar",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "protractor": "^5.4.4",
+    "protractor-cucumber-framework": "^6.2.1"
+  }
+}
